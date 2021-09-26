@@ -1,0 +1,15 @@
+label {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .label {
+    margin-bottom: 4px;
+    color: white;
+  }
+  
+  label.has-error {
+    margin-bottom: 4px;
+  }

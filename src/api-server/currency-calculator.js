@@ -176,7 +176,7 @@ const RATES_DATA = {
   };
   
 const getCurrencyRate = (currency) =>
-  currency === RATES_DATA.base ? 1 : RATES_DATA[currency];
+  currency === RATES_DATA.base ? 1 : RATES_DATA.rates[currency];
 
 exports.convertAmount = (amount, from, to) => {
   const fromRate = getCurrencyRate(from);

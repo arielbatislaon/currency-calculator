@@ -1,17 +1,22 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 8081;
 const currencyCalculator =require('./currency-calculator');
+
+app.use(cors({
+   origin: 'http://localhost:3000'
+}));
 
 app.get('/calculate-currency', function (req, res) {
    
    const   fromCurrency = req.query.fromCurrency;
    const   toCurrency = req.query.toCurrency;
-   const   amount = req.query.amount;
+   const   amount = Number(req.query.amount);
    const response = currencyCalculator.convertAmount(amount, fromCurrency, toCurrency);
 
    console.log(response);
-   res.end(JSON.stringify(response));
+   res.send(response);
 })
 
 const server = app.listen(port, function () {

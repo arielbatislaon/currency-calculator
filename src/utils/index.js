@@ -14,10 +14,7 @@ export const validateAmount = (value) => {
 };
 
 export const getCalculatedRateFromAPI = (url) => {
-  return axios({
-    method: 'get',
-    url: url,
- })
+  return  axios.get(url);
 }
   
 export const getCurrencyOptions = (currencies, optionToDisable) => {

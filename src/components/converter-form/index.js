@@ -8,29 +8,29 @@ import {CURRENCY_LIST, CURRENCY_CALCULATOR_API_URL} from '../../config'
 
 function ConverterForm(props) {
     const {labels} = props;
-   const [error, setError] = useState(null);
-   const [amountValue, setAmountValue] = useState(null);
+   const [error, setError] = useState('');
+   const [amountValue, setAmountValue] = useState(1.0);
    const [from, setFrom] = useState(null);
    const [to, setTo] = useState(null);
    const [resultValue, setResultValue] = useState(null);
    
    
    const submitForm = () => {
-    const url = `${CURRENCY_CALCULATOR_API_URL}/calculate-currency/?fromCurrency=${from}&toCurrency=${to}&amount=${amountValue}`;
-    getCalculatedRateFromAPI(url)
-            .then(response => {
-                console.log(response);
-                setResultValue(response.calculatedAmount);
-            })
-            .catch(err => {
-                console.log(err);
-              })
+    const url = `${CURRENCY_CALCULATOR_API_URL}/calculate-currency/?fromCurrency=${from.label}&toCurrency=${to.label}&amount=${amountValue}`;
+    getCalculatedRateFromAPI(url).then(response => {
+        console.log(response);
+        setResultValue(response.data.calculatedAmount);
+    })
+    .catch(err => {
+        console.log(err);
+      });
+           
    }
 
    const onAmountChange = (e) => {
     const { value } = e.target;
     setError(validateAmount(value));
-    setAmountValue(value);
+    setAmountValue(Number(value));
    }
   
    const onFromChange = (fromValue) => {
@@ -58,8 +58,9 @@ function ConverterForm(props) {
             value={to}
             onChange={toValue => setTo(toValue)}
             />
-            <input className="button" type="submit" value={labels.calculateButtonText} />
-
+            <button type="submit">
+            {labels.calculateButtonText}
+          </button>
             <ConvertedAmount value={resultValue} />
         </form>
        
