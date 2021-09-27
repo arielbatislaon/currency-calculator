@@ -1,15 +1,15 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { SelectCustomOption } from "components/SelectCustomOption";
+import CurrencyOptions from "../../components/currency-options";
 
-describe("SelectCustomOption", () => {
+describe("CurrencyOptions", () => {
   const getComp = (props) =>
-    shallow(<SelectCustomOption label={props?.label} value={props?.value} />);
+    shallow(<CurrencyOptions label={props?.label} value={props?.value} />);
 
   it("should not explode without given props", () => {
     const comp = getComp();
     expect(comp.exists()).toBe(true);
-    expect(comp.html()).toEqual('<div class="currency-option"></div>');
+    expect(comp.html()).toEqual('<div class="currency-option "></div>');
   });
 
   it("should display currency flag for given value", () => {

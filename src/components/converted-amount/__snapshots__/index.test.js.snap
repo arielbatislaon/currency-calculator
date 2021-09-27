@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ConvertedAmount correctly  1`] = `
+<label
+  className="result"
+  id="result"
+>
+  <div
+    aria-labelledby="result"
+    className="label"
+  >
+    Converted Amount:
+  </div>
+  <input
+    aria-labelledby="result"
+    disabled={true}
+    type="text"
+  />
+</label>
+`;

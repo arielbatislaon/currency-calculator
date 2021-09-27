@@ -34,17 +34,7 @@ body {
 .app-header {
   font-size: 30px;
   font-weight: 600;
-  padding: 25px;
-  color: var(--primary);
-}
-
-.source {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 15px;
-  font-size: medium;
-  font-weight: 600;
+  padding: 10px;
   color: var(--primary);
 }
 
@@ -73,12 +63,12 @@ body {
 
 form {
   margin: 0 auto;
-  padding: 30px;
+  padding: 15px;
   min-width: 240px;
   max-width: 350px;
   max-height: calc(
-    100% - 90px - 50px
-  ); /* minus height of app-header and source */
+    100% - 50px
+  ); /* minus height of app-header */
   overflow: auto;
   background-color: var(--primary);
 }
@@ -161,31 +151,17 @@ button {
   margin: 15px auto;
   font-family: inherit;
   font-weight: 600;
-  background-color:yellow;
+  background-color:gold;
   border-style: solid;
   border-radius: 50em;
   cursor: pointer;
 }
 
-.switch-currency {
-  margin-bottom: -6px;
-}
-
-.button {
-  padding: 4px 6px;
-  background-color: gold;
-  color: var(--font-color);
-  font-size: medium;
-  border: 2px solid var(--border);
-  border-radius: 4px;
-  outline: none;
-}
-
-.button:hover {
+button:hover {
   background-color: #ffc107;
 }
 
-.button:disabled {
+button:disabled {
   cursor: not-allowed;
   background-color: gold;
   opacity: 0.75;
@@ -220,11 +196,7 @@ label.has-error input[type="text"] {
   .result {
     margin-top: 15px;
   }
-  .source {
-    padding-bottom: 8px;
-    font-size: small;
-    text-align: left;
-  }
+  
 }
 
 @media only screen and (max-width: 320px) {

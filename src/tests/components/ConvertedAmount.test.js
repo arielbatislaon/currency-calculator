@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Result } from "components/Result";
+import ConvertedAmount from "../../components/converted-amount";
 
-describe("Result", () => {
-  const getComp = (value) => shallow(<Result value={value} />);
+describe("ConvertedAmount", () => {
+  const getComp = (value) => shallow(<ConvertedAmount value={value} />);
 
   it ("should render successfully with minimum settings", () => {
     expect(getComp().exists()).toBe(true);
@@ -14,7 +14,7 @@ describe("Result", () => {
 
     const label = comp.find(".label");
     expect(label.exists()).toBe(true);
-    expect(label.text()).toEqual("Result:");
+    expect(label.text()).toEqual("Converted Amount:");
   });
 
   it ("should render disabled input", () => {
@@ -27,7 +27,7 @@ describe("Result", () => {
 
   it ("should display 0 when there is no value", () => {
     const comp = getComp();
-    expect(comp.find("input").prop("value")).toEqual(0);
+    expect(comp.find("input").prop("value")).toBeUndefined();
   });
 
   it ("should display given value", () => {

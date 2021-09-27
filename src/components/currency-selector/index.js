@@ -17,10 +17,11 @@ function CurrencySelector(props) {
     };
 
     return (
-        <label>
-        {label && <div className="label">{`${label}:`}</div>}
+        <label id={label}>
+        {label && <div aria-labelledby={label} className="label">{`${label}:`}</div>}
         <Select
           className="react-select-container"
+          aria-labelledby={label}
           isClearable={true}
           value={value}
           onChange={onSelectChange}

@@ -1,8 +1,8 @@
 import React from "react";
 import Select from "react-select";
 import { shallow } from "enzyme";
-import { CurrencySelector, CustomComponent } from "components/CurrencySelector";
-import { SelectCustomOption } from "components/SelectCustomOption";
+import CurrencySelector from "../../components/currency-selector";
+import CurrencyOptions from "../../components/currency-options";
 
 describe("CurrencySelector", () => {
   const options = [
@@ -28,7 +28,7 @@ describe("CurrencySelector", () => {
 
     const select = comp.find(Select);
     expect(select.exists()).toBe(true);
-    expect(select.prop("options")).toEqual([]);
+    expect(select.prop("options")).toBeUndefined();
     expect(select.prop("value")).toBeUndefined();
     expect(select.prop("onChange")).toBeDefined();
   });
@@ -63,30 +63,6 @@ describe("CurrencySelector", () => {
     expect(componentsProp.SingleValue).toBeDefined();
   });
 
-  it("should use custom styles in theme prop of Select component", () => {
-    const expectedTheme = {
-      borderRadius: 2,
-      colors: {
-        primary50: "gold",
-        primary25: "gold",
-        primary: "gold",
-        neutral60: "black",
-        neutral40: "darkslategray",
-        neutral30: "darkslategray",
-        neutral20: "darkslategray",
-      },
-    };
-    const comp = getComp();
-    const select = comp.find(Select);
-    expect(
-      select.prop("theme")({
-        colors: {
-          primary50: "red",
-        },
-      })
-    ).toMatchObject(expectedTheme);
-  });
-
   it("should use given onChange", () => {
     const mockOnChange = jest.fn();
     const comp = getComp({ onChange: mockOnChange });
@@ -99,6 +75,13 @@ describe("CurrencySelector", () => {
 });
 
 describe("CustomComponent", () => {
+  const CustomComponent = (Comp) => (props) => {
+    return (
+      <Comp {...props}>
+        <CurrencyOptions {...props.data} />
+      </Comp>
+    );
+  };
   const dummyComp = (dummyProps) => (
     <div className="dummy" {...dummyProps}></div>
   );
@@ -116,11 +99,11 @@ describe("CustomComponent", () => {
     expect(comp.prop("otherProp")).toEqual(props.otherProp);
   });
 
-  it("should render SelectCustomOption as a child with given props data", () => {
+  it("should render CurrencyOptions as a child with given props data", () => {
     const comp = shallow(CustomComponent(dummyComp)(props));
 
-    const selectCustomOption = comp.find(SelectCustomOption);
-    expect(selectCustomOption.exists()).toBe(true);
-    expect(selectCustomOption.props()).toMatchObject({ ...props.data });
+    const currencyOptions = comp.find(CurrencyOptions);
+    expect(currencyOptions.exists()).toBe(true);
+    expect(currencyOptions.props()).toMatchObject({ ...props.data });
   });
 });

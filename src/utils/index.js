@@ -21,9 +21,9 @@ export const getCurrencyOptions = (currencies, optionToDisable) => {
   const sortedCurrencies = currencies && currencies.length >0 ? currencies.sort() : [];
   const result = sortedCurrencies.map((s) => {
     return { 
-      label: s,
-      value: s.toLowerCase() , 
-      isdisabled: optionToDisable ? s === optionToDisable.label : false
+      label: `${s.cc}-${s.name}`,
+      value: s.cc.toLowerCase() , 
+      isdisabled: optionToDisable ? s.cc.toLowerCase() === optionToDisable.value : false
     }
   })
   return result;

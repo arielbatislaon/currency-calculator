@@ -175,13 +175,13 @@ const RATES_DATA = {
     }
   };
   
-const getCurrencyRate = (currency) =>
-  currency === RATES_DATA.base ? 1 : RATES_DATA.rates[currency];
+const getCurrencyRate = (currency, rates, base) =>
+  currency === base ? 1 : rates[currency];
 
-exports.convertAmount = (amount, from, to) => {
-  const fromRate = getCurrencyRate(from);
-  const toRate = getCurrencyRate(to);
-  const calculatedAmount = (toRate * amount) / fromRate
+exports.convertAmount = (amount, from, to, rates = RATES_DATA.rates, base = RATES_DATA.base ) => {
+  const fromRate = getCurrencyRate(from, rates, base);
+  const toRate = getCurrencyRate(to, rates, base);
+  const calculatedAmount = (amount && from &&  to) ? ((toRate * amount) / fromRate) : 0
   const response = {
       fromCurrency: from,
       toCurrency: to,

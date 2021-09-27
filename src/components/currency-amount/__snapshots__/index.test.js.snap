@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CurrencyAmount correctly  1`] = `
+<label
+  className=""
+  id="amountLabel"
+>
+  <div
+    aria-labelledby="amountLabel"
+    className="label"
+  >
+    Amount to calculate:
+  </div>
+  <input
+    aria-labelledby="amountLabel"
+    onChange={null}
+    placeholder="Enter Amount"
+    type="text"
+    value={1}
+  />
+  
+</label>
+`;

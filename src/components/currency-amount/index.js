@@ -5,15 +5,16 @@ import PropTypes from 'prop-types';
 function CurrencyAmount(props) {
     const {error, value, onChange, labels} = props;
     return (
-    <label className={error ? "has-error" : ""}>
-      <div className="label">{labels.amountText}</div>
+    <label id="amountLabel" className={error ? "has-error" : ""}>
+      <div className="label" aria-labelledby="amountLabel">{labels.amountText}</div>
       <input
         type="text"
+        aria-labelledby="amountLabel"
         placeholder={labels.placeHolderText}
         value={value}
         onChange={onChange}
       />
-      {error && <div className="error-hint">{error}</div>}
+      {error && <div className="error-hint" aria-labelledby="amountLabel">{error}</div>}
     </label>
     )
 }
@@ -29,7 +30,7 @@ CurrencyAmount.propTypes = {
   
 CurrencyAmount.defaultProps = {
     error: '',
-    value: 0.0,
+    value: 1,
     onChange: null,
     labels: {
         amountText: 'Amount to calculate:',

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LoadingSpinner correctly  1`] = `
+<div>
+  <i
+    className="loading-icon fa fa-spinner fa-pulse fa-3x fa-fw"
+  />
+</div>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CurrencyOptions correctly  1`] = `
+<div
+  className="currency-option "
+>
+  
+</div>
+`;

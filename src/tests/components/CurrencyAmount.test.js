@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Amount } from "components/Amount";
+import CurrencyAmount from "../../components/currency-amount";
 
-describe("Amount", () => {
+describe("CurrencyAmount", () => {
   const getComp = (props = {}) => shallow(
-    <Amount
+    <CurrencyAmount
       className={props.className}
       error={props.error}
       value={props.value}
@@ -21,14 +21,14 @@ describe("Amount", () => {
 
     const label = comp.find(".label");
     expect(label.exists()).toBe(true);
-    expect(label.text()).toEqual("Amount to convert:");
+    expect(label.text()).toEqual("Amount to calculate:");
 
     const input = comp.find("input");
     expect(input.exists()).toBe(true);
     expect(input.prop("type")).toEqual("text");
-    expect(input.prop("placeholder")).toEqual("Set Amount");
-    expect(input.prop("value")).toBeUndefined();
-    expect(input.prop("onChange")).toBeUndefined();
+    expect(input.prop("placeholder")).toEqual("Enter Amount");
+    expect(input.prop("value")).toEqual(1);
+    expect(input.prop("onChange")).toEqual(null);
   });
 
   it ("should not display error by default", () => {
