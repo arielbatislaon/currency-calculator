@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 import PropTypes from 'prop-types';
 
 function CurrencyAmount(props) {
@@ -33,7 +32,7 @@ CurrencyAmount.defaultProps = {
     value: 1,
     onChange: null,
     labels: {
-        amountText: 'Amount to calculate:',
+        amountText: 'Amount to convert:',
         placeHolderText: 'Enter Amount',
     }
    };

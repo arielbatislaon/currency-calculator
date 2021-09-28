@@ -21,7 +21,7 @@ describe("CurrencyAmount", () => {
 
     const label = comp.find(".label");
     expect(label.exists()).toBe(true);
-    expect(label.text()).toEqual("Amount to calculate:");
+    expect(label.text()).toEqual("Amount to convert:");
 
     const input = comp.find("input");
     expect(input.exists()).toBe(true);

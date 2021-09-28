@@ -9,7 +9,7 @@ exports[`renders CurrencyAmount correctly  1`] = `
     aria-labelledby="amountLabel"
     className="label"
   >
-    Amount to calculate:
+    Amount to convert:
   </div>
   <input
     aria-labelledby="amountLabel"

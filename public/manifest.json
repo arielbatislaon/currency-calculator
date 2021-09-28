@@ -1,6 +1,6 @@
 {
-  "short_name": "Currency Conventer",
-  "name": "React Currency Conventer App",
+  "short_name": "Currency Calculator",
+  "name": "React Currency Calculator App",
   "icons": [
     {
       "src": "favicon.ico",
